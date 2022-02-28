@@ -1,3 +1,14 @@
+//error handling...
+const errorMessage = (errId, showMessage) => {
+    const errorField = document.getElementById(errId);
+    errorField.innerText = '';
+    const p = document.createElement('p');
+    p.classList.add('error-msg');
+    p.innerText = 'No phone found!!! Please try again...';
+    errorField.appendChild(p);
+    document.body.style.display = showMessage;
+}
+//button click...
 document.getElementById('btn-phones').addEventListener('click', () => {
     //getting search value...
     const searchInput = document.getElementById('phone-input');
@@ -12,6 +23,9 @@ document.getElementById('btn-phones').addEventListener('click', () => {
     }
     else {
         errorMessage('error-msg', 'block');
+        //clearing previous display result
+        const searchResult = document.getElementById('display-phones');
+        searchResult.textContent = '';
     }
 });
 //displaying phone
@@ -30,7 +44,7 @@ const displayPhones = phones => {
                     <div class="card-body text-success">
                         <h3 class="card-text">${phone.phone_name}</h3>
                         <h3 class="card-text">${phone.brand}</h3>
-                        <button onclick="details('${phone.slug}')" type="button" class="details-btn w-100 mx-auto fs-5">Details</button>
+                        <button onclick="getDetails('${phone.slug}')" type="button" class="details-btn w-100 mx-auto fs-5">Details</button>
                     </div>
                 </div>
             `;
@@ -44,13 +58,7 @@ const displayPhones = phones => {
         errorMessage('error-msg', 'block');
     }
 }
-//error handling...
-const errorMessage = (errId, showMessage) => {
-    const errorField = document.getElementById(errId);
-    errorField.innerText = '';
-    const p = document.createElement('p');
-    p.classList.add('error-msg');
-    p.innerText = 'No phone found';
-    errorField.appendChild(p);
-    document.body.style.display = showMessage;
+// displaying phone details
+const getDetails = details => {
+    console.log(details);
 }
