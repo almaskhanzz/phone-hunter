@@ -19,13 +19,17 @@
     font-weight: 500;
     color: #ee1717;
 }
+/* card */
+.border-style{
+    border-radius: 20px;
+}
 /* details button */
 .details-btn{
-    background-color: #DDAD75;
+    background-color: #61bfdb;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 10px;
 }
 .details-btn:hover{
-    background-color: #ca9c53;
+    background-color: #19619c;
 }
