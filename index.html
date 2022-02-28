@@ -14,11 +14,25 @@
 </head>
 
 <body>
-    <header class="mb-5">
-        <h1 class="text-center mt-4">Phone Zone</h1>
+    <!-- header section -->
+    <header class="mb-4">
+        <h1 class="text-center mt-4 text-color">Phone Zone</h1>
     </header>
+    <!-- main section -->
     <main>
-
+        <section class="w-75 mx-auto" id="parent-container">
+            <!-- search field & search button -->
+            <div class="input-group mb-3 w-50 mx-auto">
+                <input type="text" id="phone-input" class="form-control fs-5 bg-light" placeholder="Search your phone">
+                <button id="btn-phones" class="btn btn-outline-secondary fs-5" type="button">Search</button>
+            </div>
+            <!-- error msg, if phone isn't found  -->
+            <div id="error-msg" class="w-50 mx-auto">
+            </div>
+            <!-- display phones-->
+            <div id="display-phones" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-5">
+            </div>
+        </section>
     </main>
 
     <!-- Bootstrap js -->
