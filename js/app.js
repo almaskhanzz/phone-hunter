@@ -36,12 +36,14 @@ const displayPhones = phones => {
     const searchResult = document.getElementById('display-phones');
     //clearing previous display result
     searchResult.textContent = '';
-    if (phones.length !== 0) {
-        phones.forEach(phone => {
-            //console.log(phone);
-            const div = document.createElement('div');
-            div.classList.add('col');
-            div.innerHTML = `
+    // console.log(phones.length);
+    if (phones.length <= 20) {
+        if (phones.length !== 0) {
+            phones.forEach(phone => {
+                //console.log(phone);
+                const div = document.createElement('div');
+                div.classList.add('col');
+                div.innerHTML = `
                 <div class="card h-100">
                     <img src="${phone.image}" class="card-img-top img-fluid" alt="...">
                     <div class="card-body text-success">
@@ -51,14 +53,19 @@ const displayPhones = phones => {
                     </div>
                 </div>
             `;
-            searchResult.appendChild(div);
-        })
-        //clearing error msg
-        const clearMsg = document.getElementById('error-msg');
-        clearMsg.innerText = '';
+                searchResult.appendChild(div);
+            })
+            //clearing error msg
+            const clearMsg = document.getElementById('error-msg');
+            clearMsg.innerText = '';
+        }
+        else {
+            errorMessage('error-msg', 'block');
+        }
     }
     else {
-        errorMessage('error-msg', 'block');
+        //do this
+        console.log('try latter');
     }
 }
 //load phone details
@@ -82,7 +89,7 @@ const displayPhoneDetails = details => {
         <img src="${details.image}" class="card-img-top w-50 mx-auto img-fluid" alt="...">
         <div class="card-body">
             <h2 class="card-text hr">${details.name}</h2>
-            <hr class=" horizon">
+            <hr class="horizon">
             <h3 class="card-text ${details.releaseDate ? '' : 'text-danger'}">Release Date: ${details.releaseDate ? details.releaseDate : 'no release date found'}</h3>
             <h3 class="card-text">Storage: ${details.mainFeatures.storage}</h3>
             <h3 class="card-text">Chipset: ${details.mainFeatures.chipSet}</h3>
