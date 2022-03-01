@@ -1,6 +1,10 @@
 /* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* body */
+.container-body{
+    background-color:ghostwhite;
+}
 /* header styles*/
 .text-color{
     font-family: 'Poppins', sans-serif;
@@ -25,17 +29,15 @@
 }
 /* details button */
 .details-btn{
-    background-color: #61bfdb;
-    color: rgb(255, 255, 255);
+    background-color: #6b4e83;
+    color: rgb(245, 239, 239);
     border: none;
     border-radius: 10px;
 }
 .details-btn:hover{
-    background-color: #19619c;
+    background-color: #402a4d;
 }
-/* horizontal line */
-.horizon{
-    border: none;
-    background-image: linear-gradient(to right, #00000000, #AAAAAA, #00000000);
-    height: 1px;
+/*details card background*/
+.bg-style{
+    background-color: rgb(26, 29, 28);
 }
