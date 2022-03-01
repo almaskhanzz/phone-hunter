@@ -10,6 +10,9 @@ const errorMessage = (errId, showMessage) => {
 }
 //button click...
 document.getElementById('btn-phones').addEventListener('click', () => {
+    //clearing previous phone details
+    const detailsField = document.getElementById('phone-details');
+    detailsField.textContent = '';
     //getting search value...
     const searchInput = document.getElementById('phone-input');
     const searchText = searchInput.value;
@@ -69,5 +72,45 @@ const getPhoneDetails = id => {
 
 //displaying phone details
 const displayPhoneDetails = details => {
-    console.log(details.slug);
+    //get sensors
+    const getSensors = (details) => {
+        details.mainFeatures.sensors.forEach(sensor => {
+            console.log(sensor);
+        })
+    }
+    //getSensors(details);
+    // console.log(details.mainFeatures.sensors[0]);
+    const detailsField = document.getElementById('phone-details');
+    detailsField.textContent = '';
+    const div = document.createElement('div');
+    div.classList.add('card');
+    if (details.releaseDate === '') {
+        div.innerHTML = `
+        <img src="${details.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-text">${details.name}</h3>
+            <h3 class="card-text text-danger">${'no release date found'}</h3>
+            <h3 class="card-text">${details.mainFeatures.storage}</h3>
+            <h3 class="card-text">${details.mainFeatures.chipSet}</h3>
+            <h3 class="card-text">${details.mainFeatures.memory}</h3>
+            <h3 class="card-text">${getSensors(details)}</h3>
+        </div>
+    `;
+        detailsField.appendChild(div);
+    }
+    else {
+        div.innerHTML = `
+        <img src="${details.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-text">${details.name}</h3>
+            <h3 class="card-text">${details.releaseDate}</h3>
+            <h3 class="card-text">${details.mainFeatures.storage}</h3>
+            <h3 class="card-text">${details.mainFeatures.chipSet}</h3>
+            <h3 class="card-text">${details.mainFeatures.memory}</h3>
+            <h3 class="card-text">${getSensors(details)}</h3>
+        </div>
+    `;
+        detailsField.appendChild(div);
+    }
+
 }
