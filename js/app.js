@@ -78,72 +78,25 @@ const displayPhoneDetails = details => {
     detailsField.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
-    if (details.releaseDate === '') {
-        //get sensors
-        /* const getSensors = (details) => {
-            details.mainFeatures.sensors.forEach(sensor => {
-                console.log(sensor);
-                const p = document.createElement('p');
-                p.innerHTML = `
-                    <h3 class="card-text">${sensor}</h3>
-                `;
-                div.appendChild(p);
-            })
-        } */
-        div.innerHTML = `
+    div.innerHTML = `
         <img src="${details.image}" class="card-img-top w-50 mx-auto img-fluid" alt="...">
         <div class="card-body">
-            <h2 class="card-text">${details.name}</h2>
-            <h3 class="card-text text-danger">${'no release date found'}</h3>
+            <h2 class="card-text hr">${details.name}</h2>
+            <hr class=" horizon">
+            <h3 class="card-text ${details.releaseDate ? '' : 'text-danger'}">Release Date: ${details.releaseDate ? details.releaseDate : 'no release date found'}</h3>
             <h3 class="card-text">Storage: ${details.mainFeatures.storage}</h3>
             <h3 class="card-text">Chipset: ${details.mainFeatures.chipSet}</h3>
             <h3 class="card-text">Memory: ${details.mainFeatures.memory}</h3>
             <h3 class="card-text">Display Size: ${details.mainFeatures.displaySize}</h3>
             <h3 class="card-text">Sensors: ${details.mainFeatures.sensors}</h3>
             <h3 class="card-text">Other Information: </h3>
-            <h3 class="card-text">${details.others.WLAN}</h3>
-            <h3 class="card-text">${details.others.Bluetooth}</h3>
-            <h3 class="card-text">${details.others.GPS}</h3>
-            <h3 class="card-text">${details.others.NFC}</h3>
-            <h3 class="card-text">${details.others.Radio}</h3>
-            <h3 class="card-text">${details.others.USB}</h3>
-            
+            <h3 class="card-text ${details.others ? '' : 'text-danger'}">${details.others ? details.others.WLAN : 'no data found'}</h3>
+            <h3 class="card-text ${details.others ? '' : 'text-danger'}">${details.others ? details.others.Bluetooth : 'no data found'}</h3>
+            <h3 class="card-text ${details.others ? '' : 'text-danger'}">${details.others ? details.others.GPS : 'no data found'}</h3>
+            <h3 class="card-text ${details.others ? '' : 'text-danger'}">${details.others ? details.others.NFC : 'no data found'}</h3>
+            <h3 class="card-text ${details.others ? '' : 'text-danger'}">${details.others ? details.others.Radio : 'no data found'}</h3>
+            <h3 class="card-text ${details.others ? '' : 'text-danger'}">${details.others ? details.others.USB : 'no data found'}</h3>
         </div>
     `;
-        detailsField.appendChild(div);
-    }
-    else {
-        //get sensors
-        /* const getSensors = (details) => {
-            details.mainFeatures.sensors.forEach(sensor => {
-                console.log(sensor);
-                const p = document.createElement('p');
-                p.innerHTML = `
-                    <h3 class="card-text">${sensor}</h3>
-                `;
-                div.appendChild(p);
-            })
-        } */
-        div.innerHTML = `
-        <img src="${details.image}" class="card-img-top w-50 mx-auto img-fluid" alt="...">
-        <div class="card-body">
-            <h2 class="card-text">${details.name}</h2>
-            <h3 class="card-text">Release Date: ${details.releaseDate}</h3>
-            <h3 class="card-text">Storage: ${details.mainFeatures.storage}</h3>
-            <h3 class="card-text">Chipset: ${details.mainFeatures.chipSet}</h3>
-            <h3 class="card-text">Memory: ${details.mainFeatures.memory}</h3>
-            <h3 class="card-text">Display Size: ${details.mainFeatures.displaySize}</h3>
-            <h3 class="card-text">Sensors: ${details.mainFeatures.sensors}</h3>
-            <h3 class="card-text">Other Information: </h3>
-            <h3 class="card-text">${details.others.WLAN}</h3>
-            <h3 class="card-text">${details.others.Bluetooth}</h3>
-            <h3 class="card-text">${details.others.GPS}</h3>
-            <h3 class="card-text">${details.others.NFC}</h3>
-            <h3 class="card-text">${details.others.Radio}</h3>
-            <h3 class="card-text">${details.others.USB}</h3>
-        </div>
-    `;
-        detailsField.appendChild(div);
-    }
-
+    detailsField.appendChild(div);
 }

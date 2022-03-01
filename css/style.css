@@ -33,3 +33,9 @@
 .details-btn:hover{
     background-color: #19619c;
 }
+/* horizontal line */
+.horizon{
+    border: none;
+    background-image: linear-gradient(to right, #00000000, #AAAAAA, #00000000);
+    height: 1px;
+}
