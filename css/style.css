@@ -40,4 +40,28 @@
 /*details card background*/
 .bg-style{
     background-color: rgb(26, 29, 28);
+    
 }
+.width-style{
+    width: 50%;
+}
+
+/* responsive */
+@media only screen and (max-width: 688px){
+    #phone-details{
+        width: 100%;
+    }
+    #tb-responsive tbody,  #tb-responsive thead,  #tb-responsive tr, #tb-responsive td{
+        display: block;
+    }
+    #tb-responsive thead tr th{
+        position: absolute;
+        top: -9999px;
+        left:-9999px;
+    }
+    #tb-responsive td{
+        position: relative;
+        padding-right: 15%;
+    }
+}
+    

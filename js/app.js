@@ -86,16 +86,14 @@ const displayPhoneDetails = details => {
     div.classList.add('p-2');
     div.innerHTML = `
     <div class="card w-100 mx-auto" style="background-color: #281f2c">
-        <img src="${details.image}" class="card-img-top p-2 w-50 mx-auto img-fluid" style="border-radius: 28px" alt="...">
-        <div class="card-body bg-style table-responsive">
+        <img src="${details.image}" class="card-img-top p-1 p-lg-2 w-50 mx-auto img-fluid" style="border-radius: 28px" alt="...">
+        <div class="card-body bg-style table-responsive" id="tb-responsive">
             <table class="table table-dark table-hover align-middle">
-                <thead>
+                <tbody>
                     <tr>
                         <th scope="col" class="fs-5">Name</th>
-                        <th scope="col" class="fs-5">${details.name}</th>
+                        <td class="fs-5">${details.name}</td>
                     </tr>
-                </thead>
-                <tbody>
                     <tr>
                         <th scope="row" class="${details.releaseDate ? '' : 'text-danger'}">Release Date</th>
                         <td>${details.releaseDate ? details.releaseDate : 'no release date found'}</td>
