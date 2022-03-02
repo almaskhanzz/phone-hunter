@@ -17,11 +17,16 @@
 }
 /* main section */
 /* error handling */
+.bg-div{
+    background-color: #fadbdb;
+    border-radius: 5px;
+}
 .error-msg{
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 500;
     color: #ee1717;
+    padding: 10px;
 }
 /* card */
 .border-style{

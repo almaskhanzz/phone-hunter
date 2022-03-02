@@ -29,13 +29,21 @@ document.getElementById('btn-phones').addEventListener('click', () => {
         //clearing previous display result
         const searchResult = document.getElementById('display-phones');
         searchResult.textContent = '';
+        const maxSearchField = document.getElementById('max-search-err');
+        maxSearchField.innerText = '';
     }
 });
-//displaying phone
+//Display phones...
 const displayPhones = phones => {
+    //console.log(phones);
     const searchResult = document.getElementById('display-phones');
     //clearing previous display result
     searchResult.textContent = '';
+    //clearing previous details result
+    const detailsField = document.getElementById('phone-details');
+    detailsField.textContent = '';
+    const maxSearchField = document.getElementById('max-search-err');
+    maxSearchField.innerText = '';
     // console.log(phones.length);
     if (phones.length <= 20) {
         if (phones.length !== 0) {
@@ -44,7 +52,7 @@ const displayPhones = phones => {
                 const div = document.createElement('div');
                 div.classList.add('col');
                 div.innerHTML = `
-                <div class="card h-100 p-1" style="background-color:#281f2c; border-radius: 12px">
+                <div class="card h-100 p-3" style="background-color:#281f2c; border-radius: 12px">
                     <img src="${phone.image}" class="card-img-top img-fluid" style="border-radius: 12px" alt="...">
                     <div class="card-body">
                         <h3 class="card-text" style="color: white">${phone.phone_name}</h3>
@@ -55,17 +63,26 @@ const displayPhones = phones => {
             `;
                 searchResult.appendChild(div);
             })
+            const maxSearchField = document.getElementById('max-search-err');
+            maxSearchField.textContent = '';
             //clearing error msg
             const clearMsg = document.getElementById('error-msg');
             clearMsg.innerText = '';
         }
         else {
             errorMessage('error-msg', 'block');
+            const maxSearchField = document.getElementById('max-search-err');
+            maxSearchField.innerText = '';
         }
     }
     else {
-        //do this
-        console.log('try latter');
+        const errorMessage = document.getElementById('error-msg');
+        errorMessage.innerText = '';
+        const maxSearchField = document.getElementById('max-search-err');
+        const p = document.createElement('p');
+        p.classList.add('error-msg');
+        p.innerText = 'Search result reached maximum limit!!! Please try again.';
+        maxSearchField.appendChild(p);
     }
 }
 //load phone details
@@ -76,7 +93,7 @@ const getPhoneDetails = id => {
         .then(res => res.json())
         .then(data => displayPhoneDetails(data.data))
 }
-//displaying phone details
+//display phone details...
 const displayPhoneDetails = details => {
     //getSensors(details);
     // console.log(details.mainFeatures.sensors[0]);
